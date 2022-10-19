@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        max-width: 80%;
+        margin: auto;
+    }
+    body{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: rgb(177, 255, 255);
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table thead tr th,
+    table tbody tr td {
+        border: 1px solid #333;
+        padding: 10px;
+    }
+
+    .hobi table tbody tr:nth-child(1){
+        background-color: #2a4;
+        color: #fff;
+    }
+
+    .film table tbody tr:nth-child(2){
+        background-color: #d34;
+                color: #fff;
+    }
+
+    .musik table tbody tr:nth-child(3){
+        background-color: #08d;
+        color: #fff;
+    }
+</style>
+<body>
+    <main>
+        <div class="container">
+            <section class="hobi">
+                <h2 style="text-align:center;" >Tabel Hobi</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="nomor">Nomor</th>
+                            <th>Kegiatan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Basket</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Bermain Game</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Menonton Video</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <br>
+            <section class="film">
+                <h2 style="text-align:center;">Tabel Film</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="nomor">Nomor</th>
+                            <th>Nama Film</th>
+                            <th>Genre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Moon Knight</td>
+                            <td>
+                                <ul>
+                                    <li>Laga</li>
+                                    <li>Fiksi Pahlawan Super</li>
+                                    <li>Petualangan</li>
+                                    <li>Horor Psikologis</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Upin & Ipin: Keris Siamang Tunggal</td>
+                            <td>
+                                <ul>
+                                    <li>Petualangan</li>
+                                    <li>Aksi</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+            <br>
+            <section class="musik">
+                <h2 style="text-align:center;">Tabel Musik</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="nomor">Nomor</th>
+                            <th>Nama Musik</th>
+                            <th>Penyanyi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Seventeen</td>
+                            <td>JKT48</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>First Rabbits</td>
+                            <td>JKT48</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Fortune Coockies</td>
+                            <td>JKT48</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
