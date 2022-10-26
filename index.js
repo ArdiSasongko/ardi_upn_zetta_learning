@@ -1,47 +1,72 @@
 //object buku
 const book = [
-    {nama : "Buku baru", harga : 100000, produksi : true, stok : 10},
-    {nama : "Buku lama", harga : 90000, produksi : true, stok : 2},
-    {nama : "Buku Mainan", harga : 150000, produksi : false, stok : 1}
+    {namaBuku : "Galau Brutal", hargaBuku : 150000, statusProduksi : true, stok : 10},
+    {namaBuku : "Duduk Manis", hargaBuku : 150000, statusProduksi : true, stok : 5}
 ]
 
-let diskon = 20
-let pajak = 5
-let interes = 3
-let pricepermonth = 0
+let discount = 20
+let tax = 10
+let result = 0
 
-function pembelianBuku(namabuku,jumlahbuku){
-    const result = book.find(({nama})=> nama === namabuku)
-    if(result != undefined){
-        const totaldiskon = result.harga*(diskon/100)
-        const setelahdiskon = result.harga-totaldiskon
-        const totalpajak = setelahdiskon*(pajak/100)
-        const setelahpajak = setelahdiskon-totalpajak
-        const jumlahpembelian = setelahpajak*jumlahbuku
-        calCredit(jumlahpembelian)
+function transaksi(nameBook,order,term){
+    const cariBuku = book.find(({namaBuku})=>namaBuku===nameBook)
+    if(cariBuku != undefined){
+        const judul = cariBuku.namaBuku;
+        const stok = cariBuku.stok;
+        const harga = cariBuku.hargaBuku;
+        const totDiscount = harga * (discount/100);
+        const afterDiscount = harga-totDiscount;
+        const totTax = afterDiscount * (tax/100);
+        const afterTax = afterDiscount+totTax;
+        for(let i = 0;i<order;i++){
+            if(nameBook && cariBuku.hargaBuku && i < order){
+                result += afterTax;
+            }else{
+                console.log("Stok tidak mencukupi");
+                break;
+            }
+        }
+
         console.group();
-        console.log("Stok : ", result.stok)
-        if(result.stok >= jumlahbuku){
-            console.log("Stok Tersedia")
-            console.log("Harga per Buku : ", result.harga)
-            console.log("Harga Diskon : ", totaldiskon)
-            console.log("Harga Setelah Diskon : ", setelahdiskon)
-            console.log("Harga Pajak : ", totalpajak)
-            console.log("Harga Setelah Pajak : ", setelahpajak)
-            console.log("Harga yang harus dibayarkan : ", jumlahpembelian)
-            console.log()
-            console.log("Price to pay with credit due every month ", pricepermonth)
-            console.groupEnd()
+        console.log("Judul Buku : ", judul)
+        console.log("Jumlah yang dipesan : ", order)
+        console.log("Harga asli : ", harga)
+        console.log("Jumlah Diskon : ", totDiscount)
+        console.log("Harga setelah diskon : ", afterDiscount)
+        console.log("Jumlah pajak : ", totTax)
+        console.log("Harga setelah pajak : ",afterTax)
+        console.log("Stok saat ini : ", stok-order)
+        console.log()
+        console.groupEnd();
+        if(stok - order === 0){
+            console.log("Stok Habis")
+        }else{
+            console.log("Stok : ", stok-order, " Masih bisa memesan")
         }
-        else{
-            console.log("Stok habis atau tidak mencukupi")
-        }
-    }
-}
 
-function calCredit(jumlahpembelian){
-    pricepermonth = jumlahpembelian + (jumlahpembelian*(interes/100))
-    return pricepermonth
+        console.log("Total Biaya : ", result)
+        console.log();
+
+        let kreditBulanan = result/term;
+        let jumlahKredit = [];
+        let index = 0
+
+        console.log("Cicilan sebanyak ", term, " Kali sebanyak ", kreditBulanan , "Ribu per Bulan")
+
+        while(index<term){
+            jumlahKredit.push({
+                cicilan : index + 1,
+                jumlah : kreditBulanan,
+            })
+            index++
+        }
+
+        console.group();
+        console.log(Array.from(jumlahKredit))
+        console.groupEnd();
+    }else{
+        console.log("Buku tidak ada")
+    }
 }
 
 /* function perhitungan(buku,diskon,pajak,amount_of_stock,amount_of_purchased){
@@ -79,4 +104,4 @@ function calCredit(jumlahpembelian){
     console.groupEnd()
 } */
 
-console.log(pembelianBuku("Buku baru", 4))
+transaksi("Galau Brutal",5,12)
