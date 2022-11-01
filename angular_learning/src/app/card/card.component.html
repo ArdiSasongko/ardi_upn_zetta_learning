@@ -1,0 +1,12 @@
+
+<div *ngFor="let card of cards; let indexOfelement=index" class="container flex">
+    <div class="card">
+        <img src="{{ card.img }}" alt="{{ card.name}} ">
+    </div>
+    <div class="deskripsi">
+        <h1>{{card.name}}</h1>
+        <h2>Rp{{card.price}}</h2>
+        <div class="btn" (click)="showDetail(indexOfelement)">Detail</div>
+    </div>
+    <p *ngIf="buttonDetail[indexOfelement]">{{ card.description }}</p>
+</div>
