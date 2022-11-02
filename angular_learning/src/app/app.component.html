@@ -1,5 +1,14 @@
-<app-item *ngFor="let items of item; let indexitem = index"
-[item]="items"
-(dispAdd)="onDisplayAdd">
 
-</app-item>
+<div class="container">
+    <section>
+        <app-item *ngFor="let items of item; let indexitem = index"
+        [item]="items"
+        (dispAdd)="onDisplayAdd">
+        </app-item>
+    </section>
+    <aside>
+        <app-display *ngFor="let items of item; let indexitem = index"
+        (dispDell)="onDisplayDel">
+        </app-display> 
+    </aside>
+</div>

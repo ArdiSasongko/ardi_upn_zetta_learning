@@ -9,7 +9,7 @@ export class ItemComponent implements OnInit {
   @Input('item')
   element!: {
     name: string;
-    price: Number;
+    price: number;
     img: string;
   };
 
@@ -22,11 +22,11 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDisplayAdd(dispData:{dispName:string,dispPrice:number,dispImg:string}){
+  onDisplayAdd(){
     this.dispAdded.emit({
-      name : dispData.dispName,
-      price : dispData.dispPrice,
-      img : dispData.dispImg
+      name : this.element.name,
+      price : this.element.price,
+      img : this.element.img
     });
    }
 }

@@ -13,11 +13,19 @@ export class AppComponent {
    {
     name : 'Si Kancil',price : 20000,img : 'https://www.goodnewsfromindonesia.id/uploads/infographic/image-dongeng-si-kancil-yang-mewakili-kepribadian-orang-jawa-2-1646995863.png'
    }]
+
+   items = [{
+    name:'Si kancil',price:20000, img:'https://www.goodnewsfromindonesia.id/uploads/infographic/image-dongeng-si-kancil-yang-mewakili-kepribadian-orang-jawa-2-1646995863.png'
+   },
+   {
+    name:'Si kancil',price:20000, img:'https://www.goodnewsfromindonesia.id/uploads/infographic/image-dongeng-si-kancil-yang-mewakili-kepribadian-orang-jawa-2-1646995863.png'
+   }
+  ];
   
   
 
    onDisplayAdd(dispData:{dispName:string,dispPrice:number,dispImg:string}){
-    this.item.push({
+    this.items.push({
       name : dispData.dispName,
       price : dispData.dispPrice,
       img : dispData.dispImg
