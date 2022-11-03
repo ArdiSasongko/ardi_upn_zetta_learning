@@ -1,14 +1,17 @@
 
 <div class="container">
     <section>
-        <app-item *ngFor="let items of item; let indexitem = index"
-        [item]="items"
-        (dispAdd)="onDisplayAdd">
-        </app-item>
+      <app-item *ngFor="let items of item, let indexItem = index"
+      [item]="items"
+      [indexItem]="indexItem"
+      (addedDisplay)="addDisplay($event)">
+      </app-item>
     </section>
     <aside>
-        <app-display *ngFor="let items of item; let indexitem = index"
-        (dispDell)="onDisplayDel">
-        </app-display> 
+      <app-display *ngFor="let displays of display, let indexDisplay = index"
+      [display]="displays"
+      [indexDisplay]="indexDisplay"
+      (deleteDisplay)="delDisplay($event)">   
+      </app-display>
     </aside>
-</div>
+  </div>

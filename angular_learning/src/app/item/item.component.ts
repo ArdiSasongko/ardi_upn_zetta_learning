@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter,Output} from '@angular/core';
+import { Component, OnInit , Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -6,27 +6,24 @@ import { Component, OnInit, Input, EventEmitter,Output} from '@angular/core';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-  @Input('item')
-  element!: {
-    name: string;
-    price: number;
-    img: string;
-  };
+  @Input('item') element !:{
+    title : string,
+    stock : number,
+    price : number
+  }
 
   @Input() indexItem !: number;
-
-  @Output('dispAdd') dispAdded = new EventEmitter<{name:string, price:number, img:string}>();
-
+  @Output() addedDisplay = new EventEmitter<{dispTitle:string,dispStock:number,dispPrice:number}>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onDisplayAdd(){
-    this.dispAdded.emit({
-      name : this.element.name,
-      price : this.element.price,
-      img : this.element.img
-    });
-   }
+  addDisplay(){
+    this.addedDisplay.emit({
+      dispTitle : this.element.title,
+      dispStock : this.element.stock,
+      dispPrice : this.element.price
+    })
+  }
 }

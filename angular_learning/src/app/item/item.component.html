@@ -1,8 +1,11 @@
-<div class="card">
-    <img src="{{element.img}}" alt="">
-    <h5>{{element.name}}</h5>
-    <h6>{{element.price}}</h6>
-    <button type="button" (click)="onDisplayAdd()">
-        Add to Display
-    </button>
+<div class="container">
+    <div class="card">
+        <h5>{{element.title}}</h5>
+        <div class="card-body">
+            <p><strong>{{element.price}}</strong></p>
+            <p>{{element.stock}}</p>
+        </div>
+        <button
+        type="button" (click)="addDisplay()">Add Display</button>
+    </div>
 </div>

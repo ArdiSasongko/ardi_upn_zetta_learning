@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-display',
@@ -6,26 +6,24 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
-  @Input('display') item !:{
-    name: string,
-    price: number,
-    img : string
+  @Input('display') element !:{
+    title : string,
+    stock : number,
+    price : number
   }
 
-  @Input() indexItem !: number;
-
-  @Output('dispDell') dispDelete = new EventEmitter<{name:string, price:number, img:string}>();
-
+  @Input() indexDisplay !: number;
+  @Output() deleteDisplay = new EventEmitter<{dispTitle:string,dispStock:number,dispPrice:number}>();
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  deleteDisp(){
-    this.dispDelete.emit({
-      name: this.item.name,
-      price: this.item.price,
-      img : this.item.img
+  delDisplay(){
+    this.deleteDisplay.emit({
+      dispTitle:this.element.title,
+      dispStock:this.element.stock,
+      dispPrice:this.element.price,
     })
   }
 }

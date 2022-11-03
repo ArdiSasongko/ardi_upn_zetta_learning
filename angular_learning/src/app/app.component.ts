@@ -8,33 +8,40 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
    item = [{
-    name : 'Si Kancil',price : 20000,img : 'https://www.goodnewsfromindonesia.id/uploads/infographic/image-dongeng-si-kancil-yang-mewakili-kepribadian-orang-jawa-2-1646995863.png'
-   },
-   {
-    name : 'Si Kancil',price : 20000,img : 'https://www.goodnewsfromindonesia.id/uploads/infographic/image-dongeng-si-kancil-yang-mewakili-kepribadian-orang-jawa-2-1646995863.png'
-   }]
+    title : 'Si Kancil',
+    stock : 10,
+    price : 20000
+},
+{
+    title : 'Buaya Kampung',
+    stock : 5,
+    price : 25000
+},
+{
+    title : 'Ular Putih',
+    stock : 5,
+    price : 15000
+}]
 
-   items = [{
-    name:'Si kancil',price:20000, img:'https://www.goodnewsfromindonesia.id/uploads/infographic/image-dongeng-si-kancil-yang-mewakili-kepribadian-orang-jawa-2-1646995863.png'
-   },
-   {
-    name:'Si kancil',price:20000, img:'https://www.goodnewsfromindonesia.id/uploads/infographic/image-dongeng-si-kancil-yang-mewakili-kepribadian-orang-jawa-2-1646995863.png'
-   }
+   display=[
+    {
+      title : "",
+      stock : 0,
+      price : 0,
+    }
   ];
-  
-  
 
-   onDisplayAdd(dispData:{dispName:string,dispPrice:number,dispImg:string}){
-    this.items.push({
-      name : dispData.dispName,
-      price : dispData.dispPrice,
-      img : dispData.dispImg
-    });
-   }
+  addDisplay(dispInfo:{dispTitle:string,dispStock:number,dispPrice:number}){
+    this.display.push({
+      title : dispInfo.dispTitle,
+      stock : dispInfo.dispStock,
+      price : dispInfo.dispPrice
+    })
+  }
 
-   onDisplayDel(dispData:{dispName:string,dispPrice:number,dispImg:string}){
-    this.item.slice(this.item.findIndex(item => {
-      return item.name = dispData.dispName
-    }),1)
-   }
+  delDisplay(dispInfo:{dispTitle:string,dispStock:number,dispPrice:number}){
+    this.display.splice(this.display.findIndex(
+      item => {return item.title === dispInfo.dispTitle}
+    ),1)
+  }
 }
