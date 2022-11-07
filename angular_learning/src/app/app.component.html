@@ -1,3 +1,26 @@
 <div class="container">
   <h3>{{title}}</h3>
+  <app-item (dispCreated)="dispAdded($event)"></app-item>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-display *ngFor="let displays of display; let indexdisp = index;"
+      [display]="displays"
+      [toDisp]="displays.disp">
+        <div class="d-flex flex-row justify-content-betweem" #contentParagrap>
+          <div>
+            <p class="my-2">
+              <strong *ngIf="displays" style="color:blue">
+              {{displays.disp}}</strong>
+            </p>
+          </div>
+          <div>
+            <button class="btn btn-danger" (click)="onDestroy()">
+              Destroy
+            </button>
+          </div>
+        </div>
+      </app-display>
+    </div>
+  </div>
 </div>

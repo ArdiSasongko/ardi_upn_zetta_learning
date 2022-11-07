@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular_learning';
+  display = [{disp:'teks 1'}];
+
+  dispAdded(dispData:{disp:string}){
+    this.display.push({
+      disp : dispData.disp,
+    })
+  }
+
+  onChangeDisp(){
+    this.display[0].disp="Change"
+  }
+
+  onDestroy(){
+    this.display.splice(0,1)
+  }
 }
