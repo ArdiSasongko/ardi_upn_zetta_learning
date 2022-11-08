@@ -11,8 +11,16 @@ export class CardService{
 
     cardCreated = new EventEmitter<{name:string,img:string,power:string}>();
 
+    // onCardItem(name:string,img:string,power:string){
+    //     this.cardCreated.emit({
+    //         name : name,
+    //         img : img,
+    //         power : power
+    //     })
+    // }
+
     onCardItem(name:string,img:string,power:string){
-        this.cardCreated.emit({
+        this.cardItem.push({
             name : name,
             img : img,
             power : power
