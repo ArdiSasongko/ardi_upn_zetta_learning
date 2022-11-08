@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="flex">
+        <div *ngIf="cards != undefined">
+            <mat-card class="card">
+                <mat-card-header>
+                  <mat-card-title style="text-align:center;">{{cards.name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="{{cards.img}}" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p style="text-align:cemter;">
+                    {{cards.power}}
+                  </p>
+                </mat-card-content>
+              </mat-card> 
+        </div> 
+    </div>
+</div>

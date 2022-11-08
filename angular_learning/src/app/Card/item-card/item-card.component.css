@@ -1,0 +1,21 @@
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    max-width: 140px;
+    align-items: center;
+    margin: 10px 5px;
+  }
+  
+  .card img{
+    max-width: 50px;
+    padding: 5px;
+    align-items: center;
+    margin-left: 25px;
+  }
+  .example-header-image {
+    background-size: cover;
+  }
+  

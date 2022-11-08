@@ -1,0 +1,19 @@
+import { Component, OnInit } from '@angular/core';
+import { CardService } from 'src/app/Card-Service/cardService';
+
+@Component({
+  selector: 'app-item-card',
+  templateUrl: './item-card.component.html',
+  styleUrls: ['./item-card.component.css']
+})
+export class ItemCardComponent implements OnInit {
+
+  constructor(private CardService : CardService) { }
+
+  cards !: {name:string,img:string,power:string};
+
+  ngOnInit(): void {
+    this.CardService.cardCreated.subscribe((data:{name:string,img:string,power:string})=>{this.cards=data})
+  }
+
+}

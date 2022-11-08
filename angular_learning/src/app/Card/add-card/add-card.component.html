@@ -1,0 +1,23 @@
+<div class="form-center">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Name Superhero</mat-label>
+          <input type="text" matInput #name>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>img(url)</mat-label>
+          <input type="url" matInput #img>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Power</mat-label>
+          <input type="text" matInput #power>
+        </mat-form-field>
+    </form>
+    <button class="btn btn-submit" (click)="onCardItem(name.value, img.value, power.value)">
+        Submit
+    </button>
+</div>
+
+  
+
+
