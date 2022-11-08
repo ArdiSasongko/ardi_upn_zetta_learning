@@ -10,6 +10,7 @@ export class AddCardComponent implements OnInit {
   @ViewChild('name') name !: ElementRef;
   @ViewChild('img') img !: ElementRef;
   @ViewChild('power') power !: ElementRef;
+  @ViewChild('desc') desc ! : ElementRef;
 
   constructor(private CardService : CardService) { }
 
@@ -19,8 +20,8 @@ export class AddCardComponent implements OnInit {
     this.card = this.CardService.cardItem
   }
 
-  onCardItem(name:string, img:string, power:string){
-    this.CardService.onCardItem(name,img,power)
+  onCardItem(name:string, img:string, power:string, desc:string){
+    this.CardService.onCardItem(name,img,power,desc)
   }
 }
 

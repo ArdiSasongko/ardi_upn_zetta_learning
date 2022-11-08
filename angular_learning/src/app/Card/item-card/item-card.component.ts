@@ -12,10 +12,13 @@ export class ItemCardComponent implements OnInit {
 
   cards !: {name:string,img:string,power:string};
 
-  cardsItem:{name:string,img:string,power:string}[]=[]; 
+  cardsItem:{name:string,img:string,power:string,desc:string}[]=[]; 
   ngOnInit(): void {
     this.CardService.cardCreated.subscribe((data:{name:string,img:string,power:string})=>{this.cards=data})
     this.cardsItem = this.CardService.cardItem
   }
 
+  detail(cardItem:{name:string,img:string,power:string,desc:string}){
+    this.CardService.detail(cardItem)
+  }
 }

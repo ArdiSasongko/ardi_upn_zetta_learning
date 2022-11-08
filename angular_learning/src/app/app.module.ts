@@ -9,13 +9,15 @@ import { ItemCardComponent } from './Card/item-card/item-card.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { DetailComponent } from './Card/detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     AddCardComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

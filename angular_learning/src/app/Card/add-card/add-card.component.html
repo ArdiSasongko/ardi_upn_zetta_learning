@@ -12,8 +12,12 @@
           <mat-label>Power</mat-label>
           <input type="text" matInput #power>
         </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Deskripsi</mat-label>
+          <input type="text" matInput #desc>
+        </mat-form-field>
     </form>
-    <button class="btn btn-submit" (click)="onCardItem(name.value, img.value, power.value)">
+    <button class="btn btn-submit" (click)="onCardItem(name.value, img.value, power.value, desc.value)">
         Submit
     </button>
 </div>
