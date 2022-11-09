@@ -7,6 +7,7 @@ export class CardService{
         {name:"Deadpool",img:"https://cdn-icons-png.flaticon.com/512/1674/1674298.png",power:"Profesional",desc:"Deadpool menyukai dirty joke dan dark joke"},
         {name:"Superman",img:"https://cdn-icons-png.flaticon.com/512/1674/1674292.png",power:"OverPower",desc:"Superman salah satu icon superhero"},
         {name:"Wolverine",img:"https://cdn-icons-png.flaticon.com/512/1674/1674293.png",power:"Strong",desc:"kadang seperti anti hero"},
+        {name:"Hacker",img:"https://cdn-icons-png.flaticon.com/512/924/924915.png",power:"Strong",desc:"Suka mencuri data pribadi seseorang"},
     ]
 
     cardCreated = new EventEmitter<{name:string,img:string,power:string,desc:string}>();
