@@ -1,0 +1,69 @@
+<div class="container">
+    <form class="example-form" [formGroup]="addUser" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>ID</mat-label>
+          <input matInput [formControlName]="'id'">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Ex. Jaja" [formControlName]="'name'">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Age</mat-label>
+            <input matInput type="number" placeholder="Ex. 20" [formControlName]="'age'">
+        </mat-form-field>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Gender</mat-label>
+            <mat-radio-group [formControlName]="'gender'">
+                <mat-radio-button Matvalue="male">male</mat-radio-button>
+                <mat-radio-button value="female">female</mat-radio-button>
+                <mat-radio-button value="prefer not answer">prefer not answer</mat-radio-button>
+            </mat-radio-group>
+        </mat-form-field> -->
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>profession</mat-label>
+            <mat-select [formControlName]="'profession'">
+            <div *ngFor="let pro of profession" >
+                    <mat-option value="{{pro}}">{{pro}}</mat-option>
+            </div>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="fill">
+            <mat-label>Martial Status</mat-label>
+            <mat-select [formControlName]="'martialStatus'">
+            <div *ngFor="let stat of martialStatus" >
+                    <mat-option value="{{stat}}">{{stat}}</mat-option>
+            </div>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Ex. Bandung" [formControlName]="'address'">
+        </mat-form-field>
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>City</mat-label>
+              <input matInput placeholder="Ex. Jakarta" [formControlName]="'city'">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Country</mat-label>
+              <input matInput placeholder="Ex. Indonesia" [formControlName]="'country'">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Postal Code</mat-label>
+              <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" [formControlName]="'zipcode'">
+              <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+            </mat-form-field></td>
+          </tr></table>
+        <button mat-flat-button color="primary">
+            Submit
+        </button>
+        <br>
+    </form>
+    <button mat-flat-button color="accent" (click)="onBack()">
+        Back
+    </button>
+</div>
+

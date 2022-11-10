@@ -1,0 +1,10 @@
+.list{
+    display: flex;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.button{
+    margin: 0 50%;
+}
