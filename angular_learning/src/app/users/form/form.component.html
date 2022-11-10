@@ -12,14 +12,20 @@
             <mat-label>Age</mat-label>
             <input matInput type="number" placeholder="Ex. 20" [formControlName]="'age'">
         </mat-form-field>
-        <!-- <mat-form-field appearance="fill">
-            <mat-label>Gender</mat-label>
-            <mat-radio-group [formControlName]="'gender'">
-                <mat-radio-button Matvalue="male">male</mat-radio-button>
-                <mat-radio-button value="female">female</mat-radio-button>
-                <mat-radio-button value="prefer not answer">prefer not answer</mat-radio-button>
-            </mat-radio-group>
-        </mat-form-field> -->
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" placeholder="Ex. ex@gmail.com" [formControlName]="'email'">
+        </mat-form-field>
+        <label id="example-radio-group-label">Pick your favorite season</label>
+        <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [formControlName]="'gender'">
+        <br>
+        <mat-radio-button class="example-radio-button" *ngFor="let genders of gender" [value]="genders">
+            {{genders}}
+        </mat-radio-button>
+        </mat-radio-group>
         <br>
         <mat-form-field appearance="fill">
             <mat-label>profession</mat-label>
