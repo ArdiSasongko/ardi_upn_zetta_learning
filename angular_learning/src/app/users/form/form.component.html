@@ -44,11 +44,18 @@
             </div>
             </mat-select>
         </mat-form-field>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <!-- <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Address</mat-label>
             <input matInput placeholder="Ex. Bandung" [formControlName]="'address'">
-        </mat-form-field>
-        <table class="example-full-width" cellspacing="0"><tr>
+        </mat-form-field> -->
+        <div formArrayName="address">
+            <mat-label>Address</mat-label>
+            <div class="form-group" *ngFor="let address of getAddress(); let i = index">
+                <input type="text" class="form-control" [formControlName]="i">
+            </div>
+            <button mat-button color="basic" (click)="onAddress()">Add Address</button>
+        </div>
+        <!-- <table class="example-full-width" cellspacing="0"><tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>City</mat-label>
               <input matInput placeholder="Ex. Jakarta" [formControlName]="'city'">
@@ -62,7 +69,7 @@
               <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" [formControlName]="'zipcode'">
               <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
             </mat-form-field></td>
-          </tr></table>
+          </tr></table> -->
         <button mat-flat-button color="primary">
             Submit
         </button>

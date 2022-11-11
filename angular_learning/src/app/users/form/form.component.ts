@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
   martialStatus=['single','maried','prefer not answered']
   users !: {id:number,name:string,age:number,gender:string,email:string,profession:string,martialStatus:string,address:string,city:string,country:string,zipcode:number}
   addUser !: FormGroup;
-
+  address !: {country:string,city:string,zipcode:number}
   ngOnInit(): void {
     const id = new FormControl(this.user.length+1)
 
@@ -33,18 +33,27 @@ export class FormComponent implements OnInit {
       'email' :new FormControl(null,[Validators.required]),
       'profession' :new FormControl('student',[Validators.required]),
       'martialStatus':new FormControl('single',[Validators.required]),
-      'address':new FormControl(null,[Validators.required]),
-      'city':new FormControl(null,[Validators.required]),
-      'country':new FormControl(null,[Validators.required]),
-      'zipcode':new FormControl(null,[Validators.required]),
+      'address':new FormArray([new FormControl(null)])
     })
   }
 
   onSubmit(){
-    this.userService.onsubmit(this.addUser.value)
+    this.userService.onsubmit(this.addUser.value),
+    this.router.navigate(['/users'])
   }
 
   onBack(){
     this.router.navigate(['/users'])
   }
+
+  getAddress(){
+    return (<FormArray>this.addUser.get('address')).controls;
+  }
+
+  onAddress(){
+    const address = new FormControl(null,[Validators.required]);
+    (<FormArray>this.addUser.get('address')).push(address);
+  }
+
+
 }

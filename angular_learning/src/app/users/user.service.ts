@@ -26,10 +26,9 @@ export class UserService {
       email : 'elin@gmail.com',
       profession : 'worker',
       martialStatus : 'single',
-      address : 'Bandung',
-      zipcode : 99871,
-      city : 'Bandung',
-      country : 'Indonesia'
+      address : [
+        'Bandung','Indonesia'
+      ]
     },
     {
       id : 3,
@@ -39,10 +38,9 @@ export class UserService {
       email : 'jaidi@gmail.com',
       profession : 'worker',
       martialStatus : 'maried',
-      address : 'Bogor',
-      zipcode : 99871,
-      city : 'Bogor',
-      country : 'Indonesia'
+      address : [
+        'Jakarta',
+      ]
     },
   ]
 
