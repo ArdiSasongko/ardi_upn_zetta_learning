@@ -13,12 +13,10 @@ export class UserService {
       email : 'budi@gmail.com',
       profession : 'worker',
       martialStatus : 'single',
-      dataAddress : {
-        address : 'Bandung',
-        zipcode : 99871,
-        city : 'Bandung',
-        country : 'Indonesia'  
-      }   
+      address : 'Bandung',
+      zipcode : 99871,
+      city : 'Bandung',
+      country : 'Indonesia'    
     },
     
   ]

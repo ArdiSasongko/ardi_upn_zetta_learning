@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Form, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
-
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -41,15 +40,20 @@ export class FormComponent implements OnInit {
     const id = new FormControl(this.user.length+1)
     this.addUser = new FormGroup({
     'id' : id,
-    'name' : new FormControl(null,[Validators.required]),
-    'age' : new FormControl(null,[Validators.required]),
+    'name' : new FormControl(null,[Validators.pattern("^[A-Z, a-z]*$")]),
+    'age' : new FormControl(null,[Validators.required,Validators.pattern("^[0-9]*$"),
+    Validators.min(11),]),
     'gender' :new FormControl('male',[Validators.required]),
-    'email' :new FormControl(null,[Validators.required]),
+    'email' :new FormControl(null,[Validators.email]),
     'profession' :new FormControl('student',[Validators.required]),
     'martialStatus':new FormControl('single',[Validators.required]),
     // 'dataAddress':this.formBuilder.array([
     //   new FormControl()
     // ])
+    'address': new FormControl(),
+    'city': new FormControl(),
+    'country': new FormControl(),
+    'zipcode': new FormControl(),
     'dataAddress': this.formBuilder.array([])
     });
 
