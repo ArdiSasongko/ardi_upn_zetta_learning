@@ -1,5 +1,7 @@
 <div class="container">
     <div style="display: flex; justify-content: center;">
+        <div *ngIf="user.name !=undefined">
+        </div>
         <mat-card style="max-width:400px; text-align:center;">
             <mat-card-title>
                 {{user.name}} <br><br>
@@ -10,7 +12,8 @@
             </mat-card-subtitle>
             <mat-card-content>
                 {{user.profession}}
-                <h4>{{user.address}}</h4>
+                <h4>{{user.dataAddress.address}}</h4>
+                <h4>{{user.zipcode}}</h4>
             </mat-card-content>
             <mat-card-actions>
                 <button mat-raised-button color="Basic" (click)="onBack()">Back</button>

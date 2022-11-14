@@ -13,35 +13,14 @@ export class UserService {
       email : 'budi@gmail.com',
       profession : 'worker',
       martialStatus : 'single',
-      address : 'Bandung',
-      zipcode : 99871,
-      city : 'Bandung',
-      country : 'Indonesia'
+      dataAddress : {
+        address : 'Bandung',
+        zipcode : 99871,
+        city : 'Bandung',
+        country : 'Indonesia'  
+      }   
     },
-    {
-      id : 2,
-      name : 'Elin',
-      age : 20,
-      gender : 'female',
-      email : 'elin@gmail.com',
-      profession : 'worker',
-      martialStatus : 'single',
-      address : [
-        'Bandung','Indonesia'
-      ]
-    },
-    {
-      id : 3,
-      name : 'Jaidi',
-      age : 25,
-      gender : 'male',
-      email : 'jaidi@gmail.com',
-      profession : 'worker',
-      martialStatus : 'maried',
-      address : [
-        'Jakarta',
-      ]
-    },
+    
   ]
 
   constructor() { }

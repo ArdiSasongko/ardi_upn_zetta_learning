@@ -44,39 +44,82 @@
             </div>
             </mat-select>
         </mat-form-field>
-        <!-- <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>Address</mat-label>
-            <input matInput placeholder="Ex. Bandung" [formControlName]="'address'">
-        </mat-form-field> -->
-        <div formArrayName="address">
-            <mat-label>Address</mat-label>
-            <div class="form-group" *ngFor="let address of getAddress(); let i = index">
-                <input type="text" class="form-control" [formControlName]="i">
+        <!-- <div formArrayName="dataAddress">
+            <div *ngFor="let add of dataAddres.controls ; let i=index" formGroupName="i">
+                <mat-form-field>
+                    <mat-label>Address</mat-label>
+                    <input matInput type="text" [formControlName]="address">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>City</mat-label>
+                    <input matInput type="text" [formControlName]="city">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Country</mat-label>
+                    <input matInput type="text" [formControlName]="country">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Zipcode</mat-label>
+                    <input matInput #postalCode maxlength="5" type="number" [formControlName]="zipcode">
+                    <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                </mat-form-field>
             </div>
-            <button mat-button color="basic" (click)="onAddress()">Add Address</button>
+        </div> -->
+        <div [formGroup]="addUser">
+            <div formArrayName="dataAddress">
+                <mat-label>Detail Address</mat-label>
+                <div class="form-group" *ngFor="let addressForm of getDataAddress.controls; let index = index" [formGroupName]="index">
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Address</mat-label>
+                            <input matInput type="text" placeholder="Ex. jln x/rt x/rw x" [formControlName]="'address'">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>City</mat-label>
+                            <input matInput type="text" placeholder="Ex. Bandung" [formControlName]="'city'">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Country</mat-label>
+                            <input matInput type="text" placeholder="Ex. Indonesia" [formControlName]="'country'">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Zipcode</mat-label>
+                            <input matInput #postalCode maxlength="5"type="number" placeholder="Ex. 45116" [formControlName]="'zipcode'">
+                            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <button mat-raised-button color="basic" (click)="addAddress()"> Address </button>
+            </div>
         </div>
-        <!-- <table class="example-full-width" cellspacing="0"><tr>
-            <td><mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>City</mat-label>
-              <input matInput placeholder="Ex. Jakarta" [formControlName]="'city'">
-            </mat-form-field></td>
-            <td><mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Country</mat-label>
-              <input matInput placeholder="Ex. Indonesia" [formControlName]="'country'">
-            </mat-form-field></td>
-            <td><mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Postal Code</mat-label>
-              <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" [formControlName]="'zipcode'">
-              <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-            </mat-form-field></td>
-          </tr></table> -->
+        <!-- <div [formArrayName]="'dataAddress'">
+            <ng-container *ngFor="let adrs of add;index as i"[formGroupName]="i">
+                <table class="example-full-width" cellspacing="0"><tr>
+                    <td><mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Address</mat-label>
+                        <input matInput placeholder="Ex. Jakarta" [[formControlName]]="'address'">
+                      </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>City</mat-label>
+                      <input matInput placeholder="Ex. Jakarta" [[formControlName]]="'city'">
+                    </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Country</mat-label>
+                      <input matInput placeholder="Ex. Indonesia" [[formControlName]]="'country'">
+                    </mat-form-field></td>
+                    <td><mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Postal Code</mat-label>
+                      <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" [[formControlName]]="'zipcode'">
+                      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                    </mat-form-field></td>
+                  </tr></table>
+                  <button mat-raised-button color="basic" (click)="onAddress()"> Address </button>
+            </ng-container>
+        </div> -->
         <button mat-flat-button color="primary">
             Submit
         </button>
         <br>
     </form>
-    <button mat-flat-button color="accent" (click)="onBack()">
-        Back
-    </button>
 </div>
 
