@@ -1,23 +1,26 @@
 <div class="container">
     <div style="display: flex; justify-content: center;">
         <div *ngIf="user.name !=undefined">
+            <mat-card style="max-width:400px; text-align:center;">
+                <mat-card-title>
+                    {{user.name}} <br><br>
+                    {{user.email}} <br>
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{user.age}} | {{user.gender}} | {{user.martialStatus}}
+                </mat-card-subtitle>
+                <mat-card-content *ngFor="let addr of user.dataAddress">
+                    {{user.profession}} <br>
+                    <b>
+                        {{addr.address}} {{addr.city}} {{addr.country}}
+                        <h4>{{addr.zipcode}}</h4>
+                    </b>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button color="Basic" (click)="onBack()">Back</button>
+                    <button mat-raised-button color="Basic" routerLink="/users/edit/{{user.id}}">Edit</button>
+                </mat-card-actions>
+            </mat-card>
         </div>
-        <mat-card style="max-width:400px; text-align:center;">
-            <mat-card-title>
-                {{user.name}} <br><br>
-                {{user.email}} <br>
-            </mat-card-title>
-            <mat-card-subtitle>
-                {{user.age}} | {{user.gender}} | {{user.martialStatus}}
-            </mat-card-subtitle>
-            <mat-card-content>
-                {{user.profession}}
-                <h4>{{user.address}}</h4>
-                <h4>{{user.zipcode}}</h4>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button color="Basic" (click)="onBack()">Back</button>
-            </mat-card-actions>
-        </mat-card>
     </div>
 </div>

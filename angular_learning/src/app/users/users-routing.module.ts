@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './users.component';
 import { DetailComponent } from './detail/detail.component';
 import { FormComponent } from './form/form.component';
+import { EditComponent } from './edit/edit.component';
 
 
 const routes: Routes = [
   {path:'users',pathMatch:'full',component:UsersComponent},
   {path:'users/detail/:id',component:DetailComponent},
+  {path:'users/edit/:id',component:EditComponent},
   {path:'form',component:FormComponent}
 ]
 @NgModule({

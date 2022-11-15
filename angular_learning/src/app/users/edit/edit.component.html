@@ -1,22 +1,22 @@
 <div class="container">
-    <form class="example-form" [formGroup]="addUser" (ngSubmit)="onSubmit()">
+    <form class="example-form" [formGroup]="addUser" (ngSubmit)="onChanges()">
         <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>ID</mat-label>
           <input matInput [formControlName]="'id'">
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Name</mat-label>
-            <input matInput placeholder="Ex. Jaja" [formControlName]="'name'">
+            <input matInput placeholder="{{user.name}}" [formControlName]="'name'">
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Age</mat-label>
-            <input matInput type="number" placeholder="Ex. 20" [formControlName]="'age'">
+            <input matInput type="number" placeholder="{{user.age}}" [formControlName]="'age'">
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
-            <input matInput type="text" placeholder="Ex. ex@gmail.com" [formControlName]="'email'">
+            <input matInput type="text" placeholder="{{user.email}}" [formControlName]="'email'">
         </mat-form-field>
-        <label id="example-radio-group-label">Pick your favorite season</label>
+        <label id="example-radio-group-label">Pick your Gender</label>
         <mat-radio-group
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
@@ -77,4 +77,5 @@
         <br>
     </form>
 </div>
+
 

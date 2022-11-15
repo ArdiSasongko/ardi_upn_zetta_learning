@@ -18,6 +18,7 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.route.snapshot.paramMap.get('id');
     this.user = this.userService.user.find(data => data.id == this.userId)
+    console.log(this.user.dataAddress.address)
   }
 
   onBack(){

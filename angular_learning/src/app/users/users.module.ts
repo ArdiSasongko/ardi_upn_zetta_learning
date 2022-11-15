@@ -19,7 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
-import { FormComponent } from './form/form.component'
+import { FormComponent } from './form/form.component';
+import { EditComponent } from './edit/edit.component'
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormComponent } from './form/form.component'
     ListComponent,
     DetailComponent,
     FormComponent,
+    EditComponent,
     // ListComponent,
     // FormComponent,
     // DetailComponent

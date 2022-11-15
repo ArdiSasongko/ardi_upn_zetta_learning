@@ -1,35 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { Form, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css']
 })
-export class FormComponent implements OnInit {
+export class EditComponent implements OnInit {
+  user:any
+  userId:any
+
+  addUser !: FormGroup
+  addressForm !: FormGroup
+
   gender=['male','female','prefer not answered']
   profession=['worker','student','freelancer']
   martialStatus=['single','maried','prefer not answered']
 
-  constructor(
-    private userService:UserService,
+  constructor(private route : ActivatedRoute,
     private router : Router,
-    private formBuilder : FormBuilder
-
-  ) { }
-  
-  addUser !: FormGroup
-  addressForm !: FormGroup
-
-  user : any[] =[];
-  add:any[] =[];
+    private userService:UserService,
+    private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
+    this.userId = this.route.snapshot.paramMap.get('id');
+    this.user = this.userService.user.find(data => data.id == this.userId);
     this.user = this.userService.user
-    const id = new FormControl(this.user.length+1)
+    
     this.addUser = new FormGroup({
-    'id' : id,
+    'id' : new FormControl(null,[Validators.required]),
     'name' : new FormControl(null,[Validators.pattern("^[A-Z, a-z]*$")]),
     'age' : new FormControl(null,[Validators.required,Validators.pattern("^[0-9]*$"),
     Validators.min(11),]),
@@ -42,6 +43,7 @@ export class FormComponent implements OnInit {
 
     this.addAddress();
   }
+
   get getDataAddress (){
     return this.addUser.controls["dataAddress"] as FormArray;
   }
@@ -56,13 +58,8 @@ export class FormComponent implements OnInit {
     this.getDataAddress.push(addressForm);
   }
 
-  onSubmit(){
-    this.userService.onsubmit(this.addUser.value),
+  onChanges(){
+    this.userService.onChange(this.addUser.value),
     this.router.navigate(['/users'])
   }
-
-   onBack(){
-     this.router.navigate(['/users'])
-   }
-
 }
