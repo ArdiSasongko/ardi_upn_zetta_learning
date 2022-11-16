@@ -1,9 +1,15 @@
-<div class="card" *ngIf="user.name !=undefined">
+<div>
+    <mat-form-field>
+        <mat-label>Cari</mat-label>
+        <input matInput type="text" [(ngModel)]="datafilter">
+    </mat-form-field>
+</div>
+<div class="card" *ngFor="let data of datalist | filter:datafilter">
     <mat-card class="example-card">
-        <mat-card-title>{{user.name}}</mat-card-title>
-        <mat-card-subtitle>{{user.age}} | {{user.gender}} | {{user.martialStatus}}</mat-card-subtitle>
+        <mat-card-title>{{data.name}}</mat-card-title>
+        <mat-card-subtitle>{{data.age}} | {{data.gender}} | {{data.martialStatus}}</mat-card-subtitle>
         <mat-card-actions>
-            <button mat-raised-button color="Basic" routerLink="/users/detail/{{user.id}}">Detail</button>
+            <button mat-raised-button color="Basic" routerLink="/datas/detail/{{data.id}}">Detail</button>
         </mat-card-actions>
     </mat-card>    
 </div>

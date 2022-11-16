@@ -20,7 +20,8 @@ import { MatCardModule } from '@angular/material/card';
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { FormComponent } from './form/form.component';
-import { EditComponent } from './edit/edit.component'
+import { EditComponent } from './edit/edit.component';
+import { FilterPipe } from './filter.pipe'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EditComponent } from './edit/edit.component'
     DetailComponent,
     FormComponent,
     EditComponent,
+    FilterPipe
     // ListComponent,
     // FormComponent,
     // DetailComponent
