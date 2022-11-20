@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="d-flex flex-wrap justify-content-center">
+        <ng-container *ngFor="let list of data">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{list.name}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{list.id}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-img src="{{list.img}}">
+                <mat-card-content>
+                    {{list.desc}}
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-raised-button routerLink="/about/{{list.id}}">
+                        Detail
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </ng-container>
+    </div>
+</div>
+  

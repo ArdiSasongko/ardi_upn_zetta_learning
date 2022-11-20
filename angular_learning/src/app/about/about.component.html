@@ -1,0 +1,15 @@
+<mat-tab-group>
+    <mat-tab label="Movie">
+        <img src="{{list.img}}" alt="">
+        <p><b>Title : </b>{{list.name}}</p>
+        <p><b>Description : </b>{{list.desc}}</p>
+        <p><b>Tahun Rilis : </b>{{list.year}}</p>
+      </mat-tab>
+      <mat-tab label="Actor">
+        <ul>
+          <li *ngFor="let actr of list.actor">
+            {{actr}}
+          </li>
+        </ul>
+      </mat-tab>
+</mat-tab-group>

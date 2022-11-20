@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="d-flex flex-wrap justify-content-center">
+        <ng-container *ngFor="let list of data">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{list.name}}
+                    </mat-card-title>
+                </mat-card-header>
+                <img mat-card-img src="{{list.img}}">
+                <mat-card-actions align="end">
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                  </mat-card-actions>
+            </mat-card>
+        </ng-container>
+    </div>
+</div>

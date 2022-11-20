@@ -1,8 +1,15 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>{{title}}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    Tes
-  </mat-card-content>
-</mat-card>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="menu">
+      <button mat-button routerLink="/movies">Movies</button>
+      <br>
+      <button mat-button routerLink="/actor">Actor</button>
+    </div>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <router-outlet></router-outlet>
+</mat-drawer-container>
