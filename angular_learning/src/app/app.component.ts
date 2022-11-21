@@ -17,9 +17,9 @@ export class AppComponent {
 
   ngOnInit():void{
     this.key = this.keyfilter;
-    this.dataSource = this.dataService.user
-    // this.dataService.getData().subscribe((data)=>{
-    //   this.dataSource=data
-    // })
+    //this.dataSource = this.dataService.user
+    this.dataService.getData().subscribe((data)=>{
+     this.dataSource=data
+    })
   }
 }

@@ -12,12 +12,14 @@ import { FormsModule } from '@angular/forms';
 import { TruthPipe } from './pipe/truth.pipe';
 import { SearchPipe } from './pipe/search.pipe';
 import { AppRoutingModule } from './app-routing.module';
+import { AddComponent } from './add/add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TruthPipe,
-    SearchPipe
+    SearchPipe,
+    AddComponent
   ],
   imports: [
     BrowserModule,
