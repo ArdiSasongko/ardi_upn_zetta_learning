@@ -1,1 +1,60 @@
-<p>add works!</p>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <form [formGroup]="data">
+        <mat-card>
+          <mat-card-title>Add User Form</mat-card-title>
+          <mat-card-subtitle>silakan isi form di bawah</mat-card-subtitle>
+          <mat-card-content>
+            <div class="row">
+              <div class="col-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input matInput formControlName="first_name" placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+              <div class="col-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput formControlName="last_name" placeholder="Placeholder">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <label>Civility : </label><br>
+                <mat-radio-group formControlName="civility">
+                  <mat-radio-button value="MR">MR</mat-radio-button>
+                  <mat-radio-button value="MRS">MRS</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="col-6">
+                <mat-form-field appearance="fill">
+                  <mat-label>Gender</mat-label>
+                  <mat-select formControlName="gender">
+                    <mat-option value="male">Male</mat-option>
+                    <mat-option value="female">Female</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <mat-form-field appearance="fill">
+                  <mat-label>Status</mat-label>
+                  <mat-select formControlName="status">
+                    <mat-option value="active">Active</mat-option>
+                    <mat-option value="pending">Pending</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button (click)="addsubmit()" color="primary">Add</button>
+          </mat-card-actions>
+        </mat-card>
+      </form>
+    </div>
+    <div class="col-3"></div>
+  </div>

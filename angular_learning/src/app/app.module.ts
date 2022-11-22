@@ -8,18 +8,25 @@ import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
-import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { TruthPipe } from './pipe/truth.pipe';
 import { SearchPipe } from './pipe/search.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { AddComponent } from './add/add.component';
+import { TableComponent } from './table/table.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     TruthPipe,
     SearchPipe,
-    AddComponent
+    AddComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,14 @@ import { AddComponent } from './add/add.component';
     FormsModule,
     MatTableModule,
     AppRoutingModule,
-    HttpClientModule
+    MatButtonModule,
+    MatToolbarModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatSelectModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,13 @@
-import { Component,OnInit} from '@angular/core';
-import { DataService } from './service/data.service';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../service/data.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.css']
 })
-export class AppComponent {
+export class TableComponent implements OnInit {
+
   title:string = 'angular_learning';
   dataSource: any;
   keyfilter:any='';
@@ -22,4 +23,5 @@ export class AppComponent {
     //  this.dataSource=data
     // })
   }
+
 }
